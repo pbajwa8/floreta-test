@@ -1,0 +1,6 @@
+framework module Pods_floreta_test {
+  umbrella header "Pods-floreta-test-umbrella.h"
+
+  export *
+  module * { export * }
+}
