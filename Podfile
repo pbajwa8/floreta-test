@@ -10,6 +10,10 @@ target 'floreta-test' do
   pod 'Firebase/Core'
   pod 'FilterCam'
   pod 'Firebase/Storage'
+  pod 'Firebase'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Crash'
 
 
 end

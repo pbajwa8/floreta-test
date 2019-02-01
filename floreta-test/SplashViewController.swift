@@ -16,7 +16,10 @@ class SplashViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func showCamera(_ sender: Any) {
+        performSegue(withIdentifier: "showCamera", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

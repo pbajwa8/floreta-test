@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/param-hailify/Desktop/floreta-test/floreta-test/loading.swift">
+   </FileRef>
+   <FileRef
       location = "group:/Users/param-hailify/Desktop/floreta-test/floreta-test/VideoPreviewViewController.swift">
    </FileRef>
    <FileRef

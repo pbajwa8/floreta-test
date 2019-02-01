@@ -62,7 +62,7 @@ class VideoPreviewViewController: AVPlayerViewController {
     
     
     @objc func nextButtonAction(sender: UIButton) {
-        
+        self.player?.isMuted = true
         performSegue(withIdentifier: "showUpload", sender: nil)
     }
 

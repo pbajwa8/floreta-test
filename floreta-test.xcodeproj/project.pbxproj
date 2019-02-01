@@ -17,6 +17,8 @@
 		3E55446422039199008CBF59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E55446222039199008CBF59 /* Main.storyboard */; };
 		3E5544662203919A008CBF59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5544652203919A008CBF59 /* Assets.xcassets */; };
 		3E5544692203919A008CBF59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5544672203919A008CBF59 /* LaunchScreen.storyboard */; };
+		3E9D09DB2204ACD20078F8B6 /* loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D09DA2204ACD20078F8B6 /* loading.swift */; };
+		3E9D09DD2204BCBA0078F8B6 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D09DC2204BCBA0078F8B6 /* FinalViewController.swift */; };
 		827D4EEEBFB2D6888A74B585 /* Pods_floreta_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51C6866130340D1C94D94AA /* Pods_floreta_test.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		3E5544652203919A008CBF59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E5544682203919A008CBF59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E55446A2203919A008CBF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E9D09DA2204ACD20078F8B6 /* loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = loading.swift; path = "/Users/param-hailify/Desktop/floreta-test/floreta-test/loading.swift"; sourceTree = "<absolute>"; };
+		3E9D09DC2204BCBA0078F8B6 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		602467DA1FCD14EBEAEC7AC2 /* Pods-floreta-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-floreta-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-floreta-test/Pods-floreta-test.release.xcconfig"; sourceTree = "<group>"; };
 		D51C6866130340D1C94D94AA /* Pods_floreta_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_floreta_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B70FF023DDDE2A4FA2D69D /* Pods-floreta-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-floreta-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-floreta-test/Pods-floreta-test.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,11 +75,13 @@
 		3E55445D22039199008CBF59 /* floreta-test */ = {
 			isa = PBXGroup;
 			children = (
+				3E9D09DA2204ACD20078F8B6 /* loading.swift */,
 				3E1C6D0B2203BDE5000DBF24 /* Red_circle.png */,
 				3E1C6D072203B637000DBF24 /* VideoPreviewViewController.swift */,
 				3E55445E22039199008CBF59 /* AppDelegate.swift */,
 				3E55446222039199008CBF59 /* Main.storyboard */,
 				3E1C6D0D2203CC43000DBF24 /* UploadViewController.swift */,
+				3E9D09DC2204BCBA0078F8B6 /* FinalViewController.swift */,
 				3E1C6CFB220397E1000DBF24 /* CameraViewController.swift */,
 				3E1C6CF9220396EE000DBF24 /* SplashViewController.swift */,
 				3E5544652203919A008CBF59 /* Assets.xcassets */,
@@ -185,7 +191,10 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-floreta-test/Pods-floreta-test-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FilterCam/FilterCam.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -194,7 +203,10 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FilterCam.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,7 +244,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E1C6D082203B638000DBF24 /* VideoPreviewViewController.swift in Sources */,
+				3E9D09DD2204BCBA0078F8B6 /* FinalViewController.swift in Sources */,
 				3E1C6D0E2203CC43000DBF24 /* UploadViewController.swift in Sources */,
+				3E9D09DB2204ACD20078F8B6 /* loading.swift in Sources */,
 				3E55445F22039199008CBF59 /* AppDelegate.swift in Sources */,
 				3E1C6CFA220396EE000DBF24 /* SplashViewController.swift in Sources */,
 				3E1C6CFC220397E1000DBF24 /* CameraViewController.swift in Sources */,

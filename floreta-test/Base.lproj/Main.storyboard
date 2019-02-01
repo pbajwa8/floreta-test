@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Splash View Controller-->
+        <!--Splash-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SplashViewController" customModule="floreta_test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Splash" id="BYZ-38-t0r" customClass="SplashViewController" customModule="floreta_test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Upload"/>
                                 <connections>
-                                    <segue destination="1pF-B3-dK8" kind="show" id="ilu-dK-26x"/>
+                                    <action selector="showCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Url-Uk-hD6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -41,10 +41,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6dE-7I-Nf2"/>
+                    <connections>
+                        <segue destination="1pF-B3-dK8" kind="show" identifier="showCamera" id="UGn-hU-ACR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="89" y="27"/>
+            <point key="canvasLocation" x="1028" y="26.53673163418291"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="PQA-w4-lGd">
@@ -91,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dj1-QU-ba0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026" y="27"/>
+            <point key="canvasLocation" x="1964" y="26.53673163418291"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="TJ8-Ph-OFV">
@@ -109,7 +113,7 @@
                 </avPlayerViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HoR-Kf-5vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047" y="27"/>
+            <point key="canvasLocation" x="2984.8000000000002" y="26.53673163418291"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="B2E-C9-tDP">
@@ -166,11 +170,20 @@
                     </view>
                     <connections>
                         <outlet property="titleField" destination="lls-Yk-YD8" id="uVb-d5-n56"/>
+                        <segue destination="XZU-dd-aiS" kind="show" identifier="showFinal" id="ufr-34-vVc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vp-XY-zUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2821.5999999999999" y="26.53673163418291"/>
+            <point key="canvasLocation" x="3760.8000000000002" y="26.53673163418291"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="yrK-8e-qU7">
+            <objects>
+                <avPlayerViewController showsPlaybackControls="NO" videoGravity="AVLayerVideoGravityResizeAspectFill" id="XZU-dd-aiS" customClass="FinalViewController" customModule="floreta_test" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72C-RM-YVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4528.8000000000002" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>

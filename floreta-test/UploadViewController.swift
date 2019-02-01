@@ -16,44 +16,83 @@ class UploadViewController: UIViewController {
     
     var videoURL: URL!
     
-//    var length: Double!
-//
-//    var resolution: String!
-//
-    let rootRef = Storage().reference()
-    
     @IBOutlet weak var titleField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let videoAsset = AVAsset(url: videoURL)
-        
-//        length = CMTimeGetSeconds(videoAsset.duration)
-//
-//        let track = videoAsset.tracks(withMediaType: AVMediaType.video).first
-//
-//        let naturalSize = track!.naturalSize.applying((track?.preferredTransform)!)
-//
-//        resolution = "\(naturalSize.width)" + "x" + "\(naturalSize.height)"
-//
         // Do any additional setup after loading the view.
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-//    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
-    @IBAction func upload(_ sender: UIButton) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let videoRef = rootRef.child("videos")
+        let vc = segue.destination as! FinalViewController
+        
+        vc.videoURL = self.videoURL
+        vc.videoTitle = titleField.text!
+    }
+    
+
+    @IBAction func upload(_ sender: UIButton) {
         
         guard let localfile: URL = videoURL else {
             print("error")
             return
         }
         
-        let uploadTask = videoRef.child("one").putFile(from: localfile)
+       
+        let title = titleField.text!
+        
+        let storage = Storage.storage()
+        
+        let storageRef = storage.reference()
+        
+        let videoRef = storageRef.child("videos")
+        
+
+        let uploadTask = videoRef.child(title).putFile(from: localfile, metadata: nil) { metadata, error in
+            guard let metadata = metadata else {
+                print("Error uploading")
+                return
+            }
+            // Metadata contains file metadata such as size, content-type.
+            print(metadata)
+            
+            
+            // You can also access to download URL after upload.
+            videoRef.child(title).downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    print("error getting downloadURL")
+                    return
+                }
+                
+                let length = CMTimeGetSeconds(AVAsset(url: self.videoURL).duration)
+                let location = downloadURL
+                
+                var db = Database.database().reference()
+                
+                db.child("/videos").childByAutoId().setValue(["title": title, "length": length, "resolution": "2436x1125", "format": "mp4", "location": location.absoluteString]) {
+                    (error:Error?, ref:DatabaseReference) in
+                    if let error = error {
+                        print("Data could not be saved: \(error).")
+                    } else {
+                        print("Data saved successfully!")
+                        self.performSegue(withIdentifier: "showFinal", sender: self)
+                    }
+                }
+            }
+            
+        }
+//
+
+    }
+        
+       
+        
+       
         
 //        uploadTask.observe(.resume) { snapshot in
 //           print("upload started")
@@ -94,4 +133,4 @@ class UploadViewController: UIViewController {
     }
     */
 
-}
+

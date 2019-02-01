@@ -56,7 +56,9 @@ class CameraViewController: FilterCamViewController, FilterCamViewControllerDele
     
     func filterCam(_ filterCam: FilterCamViewController, didFinishWriting outputURL: URL) {
         let videoRecorded = outputURL as URL
-        performSegue(withIdentifier: "showPreview", sender: videoRecorded)
+        
+        self.performSegue(withIdentifier: "showPreview", sender: videoRecorded)
+        
     }
     
     func filterCam(_ filterCam: FilterCamViewController, didFocusAtPoint tapPoint: CGPoint) {}
@@ -64,6 +66,7 @@ class CameraViewController: FilterCamViewController, FilterCamViewControllerDele
     func filterCam(_ filterCam: FilterCamViewController, didFailToRecord error: Error) {
         print("Error recording movie")
     }
+    
 
     /*
     // MARK: - Navigation
