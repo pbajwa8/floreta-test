@@ -52,6 +52,16 @@ class UploadViewController: UIViewController {
         
         let videoRef = storageRef.child("videos")
         
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        
 
         let uploadTask = videoRef.child(title).putFile(from: localfile, metadata: nil) { metadata, error in
             guard let metadata = metadata else {
@@ -80,7 +90,12 @@ class UploadViewController: UIViewController {
                         print("Data could not be saved: \(error).")
                     } else {
                         print("Data saved successfully!")
-                        self.performSegue(withIdentifier: "showFinal", sender: self)
+                        self.dismiss(animated: false, completion: {
+                            self.performSegue(withIdentifier: "showFinal", sender: self)
+                        })
+                        
+                        
+//                        self.performSegue(withIdentifier: "showFinal", sender: self)
                     }
                 }
             }
